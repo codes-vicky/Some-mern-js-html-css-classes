@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String1</title>
+</head>
+<body>
+    <h1 id="h">Welcome to String          </h1>
+    <p>The length of string is:</p>
+    <p id="demo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero soluta deserunt quia aliquid molestiae velit autem tempora officia, ipsum repellendus earum perspiciatis facilis minus tempore quam excepturi. Placeat, ullam accusamus.</p>
+    <button onclick="myFunct()">Upper</button>
+    <button onclick="myFunct2()">Lower</button>
+    <script>
+        // let text="hii this is digiCoder";
+    //    var text= document.getElementById("h").innerHTML;
+    //     document.getElementById("demo").innerHTML=text.length;
+    // var text="Hello Ayush";
+    // let letter=text.at(6);
+
+    // document.getElementById("demo").innerHTML=text.charAt(7);
+    // document.getElementById("demo").innerHTML=text.charCodeAt(0);
+    // document.getElementById("demo").innerHTML=letter;
+
+    //======SLICE  Method==========
+    // let text="DigiCoders Tutorials";
+    // // let part=text.slice(-3,-1);
+    // document.getElementById("demo").innerHTML=part;
+
+    //======convert into UpperCase and LowerCase
+    function myFunct(){
+        let text=document.getElementById("demo").innerHTML;
+        document.getElementById("demo").innerHTML=text.toUpperCase();
+    }
+    function myFunct2(){
+        let text=document.getElementById("demo").innerHTML;
+        document.getElementById("demo").innerHTML=text.toLowerCase();
+
+    }
+    
+    </script>
+</body>
+</html>

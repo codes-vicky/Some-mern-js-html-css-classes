@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <script>
+        function getRandom(min,max){
+            var a=Math.random();
+            var b=a*(max-min)+min;
+            b=parseInt(b);
+            return b;
+        }
+        function generateCaptcha(){
+            var a=getRandom(0,9);
+            var b=String.fromCharCode(getRandom(97,122));
+            var c=String.fromCharCode(getRandom(65,90));
+            var d=getRandom(0,9);
+            var e=getRandom(0,9);
+
+            
+            var code=a+b+c+d+e;
+
+            document.getElementById("captchabox").innerHTML=code;
+        }
+    </script>
+</head>
+<body onload="generateCaptcha()">
+    Enter your Name <input type="text"><br><br>
+    Enter your email <input type="email"><br><br>
+    Enter your password <input type="password"><br><br>
+   <div id="bg" style="height: 50px; width: 100px;"> <h1 id="captchabox" style="background-color: black;color: white;"></h1></div>
+    <!-- <div id="img"></div><br> -->
+    <button onclick="generateCaptcha()">Refresh</button>
+    <button>Submit</button>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="music-player">
+        <h2 id="song-name">Khoobsurat:</h2>
+        <button id="playstopbtn">Play</button>
+        <audio src="ganesha.mp3" id="audio" src="" ></audio>
+
+    </div>
+    <script>
+        const demo=document.getElementById("playstopbtn");
+        const audio=document.getElementById("audio");
+        demo.addEventListener('click',function(){
+            if(audio.paused){
+                audio.play()
+                demo.textContent="Stop";
+            }
+            else{
+                audio.pause();
+                demo.textContent="play";
+
+            }
+        })
+    </script>
+</body>
+</html>

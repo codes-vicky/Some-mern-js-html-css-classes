@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+         <!-- used for border  -->
+          <legend>Registration Form</legend>
+    <form action="">
+        <!-- important attributes -----
+        1. readonly - fix the value of input 
+        2. size - fix the width of box 
+        3. required - box should  not be blank
+        4. name - for collect the data 
+        5. placeholder - used for given hint 
+        6. checked - for setting the priority
+        7. rows -  setting the height of text area 
+        8. cols - setting the width of text area 
+        9. selected - setting the priority for select option -->
+
+        Name <input type="text" id="" class="" value="john" readonly size="200px"><br><br>
+
+        Email <input type="email"><br><br>
+        Password <input type="password"><br><br>
+
+        <!-- type of number will accept "0-9" and "+ . e - for country code" -->
+        Mobile No <input type="number"><br><br>
+        D-O-B <input type="date"><br><br>
+        Time <input type="time"><br><br>
+        Date and time <input type="datetime-local"><br><br>
+
+        <!-- For single radio button selection we can use "Name" attribute -->
+        Gender <input type="radio" name="abc" checked>Male
+        <input type="radio" name="abc">Female <br><br>
+
+        Hobby <input type="checkbox">cricket
+        <input type="checkbox">Football
+        <input type="checkbox">Vollyball <br><br>
+
+        Address <textarea name="" id=""></textarea><br><br>
+        City <select name="" id="">
+            <option value="" >Lucknow</option>
+            <option value="">Ambedkar Nagar</option>
+            <option value="" selected>Gorakhpur</option>
+        </select><br><br>
+        <input type="file"><br><br>
+        <input type="submit"><br><br>
+        <input type="reset"><br><br>
+        <input type="button" value="Register"><br><br>
+
+        <!-- <button></button> -- This is html 5 Tag -->
+        <button>
+            Submit
+        </button>
+
+    </form>
+</fieldset>
+</body>
+
+</html>

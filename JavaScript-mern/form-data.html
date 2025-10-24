@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.4/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+    <h2>Submit your Details</h2>
+    <form action="" id="userForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submitted Details</h2>
+    <table id="entriesTable" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Entries will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById("userForm").addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form submission
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById("email").value;
+            const age = document.getElementById("age").value;
+
+            // Create an object to hold the data
+            const formData = {
+                name: name,
+                email: email,
+                age: age
+            };
+
+            console.log(formData);
+            
+
+            // Retrieve data from localStorage
+            let allEntries = JSON.parse(localStorage.getItem('entries')) || [];
+
+            // Add the new data to the array
+            allEntries.push(formData);
+
+            // Save the updated array back to localStorage
+            localStorage.setItem('entries', JSON.stringify(allEntries));
+
+            // Show success message
+            Swal.fire({
+                title: "Saved Successfully",
+                text: "Your data has been saved!",
+                icon: "success"
+            });
+
+            // Reset the form
+            document.getElementById("userForm").reset();
+
+            // Display the latest entries in the table
+            displayEntries(formData);
+        });
+
+        // Function to display all entries
+        function displayEntries() {
+            const entriesTableBody = document.getElementById('entriesTable').querySelector('tbody');
+            entriesTableBody.innerHTML = ''; // Clear existing entries
+            const allEntries = JSON.parse(localStorage.getItem('entries')) || [];
+            allEntries.forEach(function(entry) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${entry.name}</td>
+                    <td>${entry.email}</td>
+                    <td>${entry.age}</td>`
+                    entriesTableBody.appendChild(row);
+            });
+        }
+
+        // Call displayEntries on page load to show any previously saved entries
+        displayEntries();
+    </script>
+</body>
+
+</html>

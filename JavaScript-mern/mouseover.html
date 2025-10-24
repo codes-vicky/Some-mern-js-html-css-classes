@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouseover</title>
+</head>
+<body>
+    <p id="hoverText" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Hover over the text to see a change</p>
+    <script>
+        function handleMouseOver() {
+            document.getElementById("hoverText").style.color="red";
+            document.getElementById("hoverText").style.fontSize="80px";
+            
+        }
+        function handleMouseOut() {
+            document.getElementById("hoverText").style.color="green";
+            document.getElementById("hoverText").style.fontSize="50px";
+            
+        }
+    </script>
+</body>
+</html>

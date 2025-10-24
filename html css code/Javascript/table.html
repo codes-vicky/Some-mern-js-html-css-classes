@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function gettable(){
+            var a = document.getElementById("t1").value;
+            a=parseInt(a);
+            for(var i=1;1<=10;i++){
+                document.getElementById("p1").innerHTML+=a*i+"</br>";
+            }
+        }
+    </script>
+</head>
+<body>
+    Enter a value for table: <input id="t1" type="number">
+    <br><br>
+    <p id="p1"></p>
+    <button onclick="gettable()">Get Table</button>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const person = {
+            name: "Ayush",
+            fname: "Shukla",
+            age: 23,
+            haircolor: "Brown"
+        };
+        document.getElementById("demo").innerHTML=person.name+"is"+person.age+"years old";
+    </script>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        // const Person={
+        //     name: "Ayush",
+        //     fname: "Shukla",
+        //     age: 23,
+        //     haircolor: "Brown"
+        // };
+        // document.getElementById("demo").innerHTML=person.name+" is "+person.age+" years old";
+
+        // const myobject={
+        //     firstname:"Ayush",
+        //     lastname:"Shukla",
+        //     fullname:function(){
+        //         return this.firstname + " " + this.lastname;
+        //     }
+        // }
+        // document.getElementById("demo").innerHTML=myobject.fullname();
+        function demo(){
+          var a=document.getElementById("t2").value;
+          console.log(a);
+          
+        }
+
+
+    </script>
+    <select name="" id="t2" onchange="demo()">
+        <option value="1">India</option>
+        <option value="2">Bhutan</option>
+        <option value="3">Nepal</option>
+        <option value="4">China</option>
+    </select>
+    
+</body>
+
+</html>

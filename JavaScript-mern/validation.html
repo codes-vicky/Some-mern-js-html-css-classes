@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm(){
+            //validate name (letters and space only )
+            const name=document.getElementById("name").value;
+            console.log("name",name);
+            const namePattern= /^[A-Za-z\s]+$/;
+            if (!namePattern.test(name)) {
+                alert("Beta Masti Nahi valid name enter karo");
+                return false;
+
+            }
+        //validate Gmail
+            const email=document.getElementById("email").value;
+            const emailPattern=/^[a-zA-Z0-9.%+=]+@gmail\.com$/;
+            if (!emailPattern.test(email)) {
+                alert("Beta Fir Masti Sahi se enter Karo");
+                return false;
+            }
+            //validate Mobile
+            const Mobile=document.getElementById("Mobile").value;
+            const mobilePattern=/^[789]\d{9}$/;
+            if(!mobilePattern.test(Mobile)){
+                alert("Please Enter Valid Mobile Number");
+                return false;
+            }
+
+
+            return true;
+            
+            
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+    Enter your Name: <input type="text" id="name">
+    Enter your email: <input type="email" id="email">
+    Enter your MobileNumber: <input type="number" id="Mobile">
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

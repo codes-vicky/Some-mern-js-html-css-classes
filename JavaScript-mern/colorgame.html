@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Counting Game</title>
+    <style>
+        #game-container {
+            height: 500px;
+            width: 100%;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden; /* This will hide the overflowing elements */
+        }
+
+        .box {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<center>
+
+    <h1>Box Counting Game</h1>
+
+    <div style="background-color: #3498db; height: 25px; width: 25px; float: left;margin-left: 600px; margin-top: 35px;" class="div"></div>
+    <div style="background-color: #e74c3c; height: 25px; width: 25px; float: left; margin-left: 50px; margin-top: 35px;" class="div"></div>
+    <div style="background-color: #2ecc71; height: 25px; width: 25px; float: left; margin-left: 50px; margin-top: 35px;" class="div"></div>
+    <div style="background-color: #f1c40f; height: 25px; width: 25px; float: left; margin-left: 50px; margin-top: 35px;" class="div"></div>
+
+    <p style="position: relative; right: 430px; top: 60px;">Blue &emsp; Red &emsp; Green &emsp; Yellow</p>
+
+    <br><br><br><br><br><br><br>
+
+    <button style="height: 40px; width: 120px; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; background-color: rgb(135, 255, 108);" id="play">Play</button>
+    <button style="height: 40px; width: 120px; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; background-color: rgb(255, 194, 96);" id="stop">Stop</button>
+    <button style="height: 40px; width: 120px; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; background-color: rgb(108, 240, 255);" id="Refresh">Refresh</button>
+
+</center>
+
+<br><br>
+
+<div id="game-container"></div>
+
+<script>
+    const playbtn = document.getElementById("play");
+    const stopbtn = document.getElementById("stop");
+    const refreshbtn = document.getElementById("Refresh");
+    const gameContainer = document.getElementById("game-container");
+
+    const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f'];
+    const colorsname = { '#3498db': 'blue', '#e74c3c': 'red', '#2ecc71': 'green', '#f1c40f': 'yellow' };
+    let IntervalId;
+    let boxCount = { '#3498db': 0, '#e74c3c': 0, '#2ecc71': 0, '#f1c40f': 0 };
+
+    function getRandomColor() {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function createBox() {
+        const box = document.createElement('div');
+        const color = getRandomColor();
+        box.classList.add('box');
+        box.style.backgroundColor = color;
+
+        // Set random position inside the container
+        const maxTop = gameContainer.offsetHeight - 20; // 20 is the height of the box
+        const maxLeft = gameContainer.offsetWidth - 20; // 20 is the width of the box
+        box.style.top = `${Math.random() * maxTop}px`;
+        box.style.left = `${Math.random() * maxLeft}px`;
+
+        gameContainer.appendChild(box);
+        boxCount[color]++;
+    }
+
+    function startGame() {
+        boxCount = { '#3498db': 0, '#e74c3c': 0, '#2ecc71': 0, '#f1c40f': 0 };
+        IntervalId = setInterval(() => {
+            createBox();
+        }, 500);
+    }
+
+    function stopGame() {
+        
+        clearInterval(IntervalId);
+        let maxColor=null;
+        let maxCount=0;
+        for(let color in boxCount){
+            if(boxCount[color]>maxCount){
+                maxCount=boxCount[color];
+                maxColor=color;
+            }
+        }
+        //alert with counts ''
+        alert(`blue:${boxCount['#3498db']}\nred:${boxCount['#e74c3c']}\ngreen:${boxCount['#2ecc71']}\nyellow:${boxCount['#f1c40f']}\n\n
+        The Winnner is:${colorsname[maxColor]}!`);
+        //speech
+        const msg=new SpeechSynthesisUtterance(`The Winnner is:${colorsname[maxColor]}!`);
+        window.speechSynthesis.speak(msg);
+        gameContainer.innerHTML = ''; // Clears all boxes
+        boxCount = { '#3498db': 0, '#e74c3c': 0, '#2ecc71': 0, '#f1c40f': 0 };
+    }
+
+    function refreshGame() {
+        gameContainer.innerHTML = ''; // Clears all boxes
+        boxCount = { '#3498db': 0, '#e74c3c': 0, '#2ecc71': 0, '#f1c40f': 0 };
+    }
+
+    playbtn.addEventListener('click', startGame);
+    stopbtn.addEventListener('click', stopGame);
+    refreshbtn.addEventListener('click', refreshGame);
+
+</script>
+
+</body>
+
+</html>

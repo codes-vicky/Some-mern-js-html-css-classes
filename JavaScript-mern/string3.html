@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DigiCoder</h1>
+    Enter a String <input type="text" id="t1">
+    <br>
+    <p id="demo"></p>
+    <button onclick="check()">check</button>
+<script>
+    function check(){
+    var a=document.getElementById("t1").value;
+    let result =a.repeat(2);
+    document.getElementById("demo").innerHTML=result;
+
+}
+</script>
+</body>
+</html>

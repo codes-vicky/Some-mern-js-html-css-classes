@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider-container{
+            width: 100%;
+            max-width: 800px;
+             
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid;
+        }
+        .slide img{
+            width: 100%;
+            
+            display: block;
+
+        }
+        .prev{
+            left: 10px;
+        }
+        .next{
+            right: 10px;
+        }
+        .prev .next{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body >
+    <center><h1>Welcome to Slider in javascript</h1></center>
+    <div class="slider-container">
+        <div class="slide">
+            <img src="" id="sliderimage">
+        </div>
+        <button class="prev" onclick="prevImage()">&laquo;:Prev</button>
+        <button class="next" onclick="nextImage()">Next&raquo;</button>
+    </div>
+    <script>
+        const img=['bulb2.png!sw800','captcha-bg.jpeg','lightoff.jpg'];
+        let currentIndex=0;
+        function loadImage(){
+            const SliderImage=document.getElementById("sliderimage");
+            SliderImage.src=img[currentIndex];
+        }
+        function prevImage(){
+            currentIndex--;
+            if(currentIndex<0){
+                currentIndex=img.length-1;
+            }
+            loadImage();
+        }
+        function nextImage(){
+            currentIndex++;
+            if(currentIndex>=img.length){
+                currentIndex=0;
+            }
+            loadImage();
+        }
+        setInterval(nextImage,1000);
+        window.onload=function(){
+            loadImage();
+        }
+       
+    </script>
+</body>
+</html>

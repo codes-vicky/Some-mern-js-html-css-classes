@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        ul li{
+            height: 50px;
+            width: 200px;
+            background: yellow;
+            float: left;
+            text-align: center;
+        }
+        ul li a{
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 50px;
+        }
+        ul li a:hover{
+            background: lightgreen;
+            color:brown;
+            display: block;
+        }
+        ul ul{
+            display: none;
+        }
+        ul li:hover>ul{
+            display: block;
+        }
+        ul ul ul{
+            margin-left: 200px;
+            margin-top: -50px;
+
+        }
+        #tri{
+            height: 0px;
+            width: 0px;
+            border-top: 150px solid red;
+            border-right: 150px solid green;
+            border-bottom: 150px solid purple;
+            border-left: 150px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="">Home </a></li>
+        <li><a href="">About us  </a></li>
+        <li><a href="">Contact US </a></li>
+        <li><a href="">Gallery</a>
+            <ul>
+                <li><a href="">Image</a></li>
+                <li><a href="">Video</a>
+                    <ul>
+                        <li><a href="">1080px</a></li>
+                        <li><a href="">720px</a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+        <li><a href="">SignUp</a></li>
+    </ul><br><br><br>
+    <div id="tri"></div>
+</body>
+</html>

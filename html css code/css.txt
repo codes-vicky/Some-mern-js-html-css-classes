@@ -1,0 +1,9 @@
+Types of selector===========
+1. ID                  #
+2. Class                .
+
+3. Tag                  <tag_name>
+4. Group              
+
+5. Attribute           
+6. Universal               *

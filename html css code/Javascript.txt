@@ -1,0 +1,10 @@
+                                JAvaScript
+
+Most popular programmimg language
+Easy to learn
+Variable declaration-------
+var a;
+Client side and Server side
+Frontend -: React js, Angular, Vue, Next js
+Backend -: Node js, express js, Nest js
+

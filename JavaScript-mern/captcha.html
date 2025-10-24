@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #p1{
+            background-image: url("captcha-bg.jpeg");
+            width: 150px;
+        }
+    </style>
+   
+    <script>
+        function random(min,max){
+            var a=Math.random();
+            var b=a*(max-min)+min;
+            b=parseInt(b);      
+            return b;
+        }
+        function Generate(){
+            var a=random(0,9);
+            var b=String.fromCharCode(random(65,90));
+            var c=String.fromCharCode(random(97,120));
+            var d=String.fromCharCode(random(65,90));
+            var e=random(0,9);
+            var f=String.fromCharCode(random(97,120));
+
+
+            var code =a+b+c+d+e+f;
+            document.getElementById("p1").innerHTML=code;
+            document.getElementById("p1").style.fontStyle="italic";
+            
+
+        }
+        function check(){
+            var cap= document.getElementById("p1").innerText;
+            console.log(cap);
+            
+            var check= document.getElementById("t1").value;
+            if (cap==check) {
+                alert("Captcha Matched");
+            }
+            else{
+                alert("Captcha Wrong");
+            }
+        }
+        
+    </script>
+
+</head>
+<body onload="Generate()">
+    
+    <h1 id="p1"></h1>
+    <input type="text" id="t1">
+    <button onclick="check()">Submit</button>
+    <br><br>
+
+    <button onclick="Generate()">Refresh</button>
+</body>
+</html>
